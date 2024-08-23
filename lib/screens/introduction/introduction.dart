@@ -19,10 +19,17 @@ class AppIntroductionScreen extends StatelessWidget {
               const Icon(
                 Icons.star,
                 size: 65,
-                color: Colors.amber,
               ),
               SizedBox(height: 40),
-              const Text("Confident for Success"),
+              const Text(
+                "Confident for Success",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: onSurfaceColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(height: 40),
               AppCircleButton(
                   child: const Icon(

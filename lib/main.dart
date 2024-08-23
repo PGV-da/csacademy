@@ -1,4 +1,7 @@
 import 'package:csacademy/bindings/initial_bindings.dart';
+import 'package:csacademy/configs/themes/app_dark_theme.dart';
+import 'package:csacademy/configs/themes/app_light_theme.dart';
+import 'package:csacademy/controllers/theme_controller.dart';
 import 'package:csacademy/data_uploader_screen.dart';
 import 'package:csacademy/routes/app_routes.dart';
 import 'package:csacademy/screens/introduction/introduction.dart';
@@ -29,6 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: Get.find<ThemeController>().darkTheme,
       getPages: AppRoutes.routes(),
     );
   }
