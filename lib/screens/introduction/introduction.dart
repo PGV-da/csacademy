@@ -1,3 +1,4 @@
+import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/widgets/app_circle_button.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class AppIntroductionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(gradient: mainGradient(context)),
         alignment: Alignment.center,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 0.2),
