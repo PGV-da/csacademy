@@ -1,4 +1,7 @@
+import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:csacademy/controllers/question_paper/question_paper_controller.dart';
+import 'package:csacademy/screens/home/question_card.dart';
+import 'package:csacademy/widgets/content_area.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,26 +12,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionPaperController _questionPaperController = Get.find();
     return Scaffold(
-      body: Obx(
-        () => ListView.separated(
-            itemBuilder: (BuildContext context, int index) {
-              return ClipRRect(
-                child: SizedBox(
-                  height: 200,
-                  width: 200,
-                  child: FadeInImage(
-                    placeholder: AssetImage("assets/images/cs_academy.jpg"),
-                    image: NetworkImage(
-                      _questionPaperController.allPaperImages[index],
-                    ),
-                  ),
-                ),
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(height: 20);
-            },
-            itemCount: _questionPaperController.allPaperImages.length),
+      body: ContentArea(
+        addPadding: false,
+        child: Obx(
+          () => ListView.separated(
+              padding: UiPerameters.mobileScreenPadding,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index) {
+                return QuestionCard(
+                  model: _questionPaperController.allPapers[index],
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(height: 20);
+              },
+              itemCount: _questionPaperController.allPapers.length),
+        ),
       ),
     );
   }

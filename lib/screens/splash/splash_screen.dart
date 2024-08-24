@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        decoration: BoxDecoration(gradient: mainGradient(context)),
+        decoration: BoxDecoration(gradient: mainGradient()),
         child: Image.asset(
           "assets/images/cs_academy.jpg",
           width: 200,
