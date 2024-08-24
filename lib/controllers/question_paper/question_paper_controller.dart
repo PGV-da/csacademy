@@ -1,4 +1,4 @@
-import 'package:csacademy/services/firebase_storage_services.dart';
+import 'package:csacademy/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 
 class QuestionPaperController extends GetxController {
@@ -14,11 +14,9 @@ class QuestionPaperController extends GetxController {
     List<String> imgName = ["biology", "chemistry", "maths", "physics"];
     try {
       for (var img in imgName) {
-        final imgUrl = await Get.find<FirebaseStorageServices>().getImage(img);
+        final imgUrl = await Get.find<FirebaseStorageService>().getImage(img);
         if (imgUrl != null) {
           allPaperImages.add(imgUrl);
-        } else {
-          print("Image not found for: $img");
         }
       }
     } catch (e) {
