@@ -6,7 +6,7 @@ class AppCircleButton extends StatelessWidget {
     required this.child,
     this.color,
     this.width = 60,
-    required this.onTap,
+    this.onTap,
   });
   final Widget child;
   final Color? color;
@@ -20,6 +20,7 @@ class AppCircleButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       shape: const CircleBorder(),
       child: InkWell(
+        onTap: onTap,
         child: child,
       ),
     );

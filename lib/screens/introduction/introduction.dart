@@ -1,6 +1,7 @@
 import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/widgets/app_circle_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
   const AppIntroductionScreen({super.key});
@@ -32,11 +33,12 @@ class AppIntroductionScreen extends StatelessWidget {
               ),
               SizedBox(height: 40),
               AppCircleButton(
-                  child: const Icon(
-                    Icons.arrow_forward,
-                    size: 35,
-                  ),
-                  onTap: () {})
+                child: const Icon(
+                  Icons.arrow_forward,
+                  size: 35,
+                ),
+                onTap: () => Get.offAndToNamed("/home"),
+              )
             ],
           ),
         ),
