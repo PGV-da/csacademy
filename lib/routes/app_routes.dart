@@ -1,4 +1,5 @@
 import 'package:csacademy/controllers/question_paper/question_paper_controller.dart';
+import 'package:csacademy/controllers/zoom_drawer_controller.dart';
 import 'package:csacademy/screens/home/home_screen.dart';
 import 'package:csacademy/screens/introduction/introduction.dart';
 import 'package:csacademy/screens/splash/splash_screen.dart';
@@ -19,6 +20,7 @@ class AppRoutes {
           page: () => const HomeScreen(),
           binding: BindingsBuilder(() {
             Get.put(QuestionPaperController());
+            Get.put(MyZoomDrawerController());
           }),
         ),
       ];
