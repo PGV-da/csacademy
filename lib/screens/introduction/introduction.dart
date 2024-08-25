@@ -27,7 +27,7 @@ class AppIntroductionScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
-                  color: onSurfaceColor,
+                  color: onSurfaceTextColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
