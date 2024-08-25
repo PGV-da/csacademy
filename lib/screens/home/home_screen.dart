@@ -23,17 +23,15 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
         return Container(
           decoration: BoxDecoration(gradient: mainGradient()),
           child: ZoomDrawer(
-            overlayBlur: 0.5,
-            borderRadius: 30.0,
-            angle: 0.0,
-            mainScreenScale: 0.1,
-            style: DrawerStyle.defaultStyle,
-            slideWidth: MediaQuery.of(context).size.width * 0.8,
-            controller: _.zoomDrawerController,
-            menuScreen: MyMenuScreen(),
-            mainScreen: Container(
-              decoration: BoxDecoration(gradient: mainGradient()),
-              child: SafeArea(
+              overlayBlur: 0.5,
+              borderRadius: 30.0,
+              angle: 0.0,
+              mainScreenScale: 0.1,
+              style: DrawerStyle.defaultStyle,
+              slideWidth: MediaQuery.of(context).size.width * 0.8,
+              controller: _.zoomDrawerController,
+              menuScreen: MyMenuScreen(),
+              mainScreen: SafeArea(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -43,15 +41,15 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AppCircleButton(
-                            child: Icon(AppIcons.menuLeft),
                             onTap: controller.toogleDrawer,
+                            child: const Icon(AppIcons.menuLeft),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             child: Row(
                               children: [
-                                Icon(AppIcons.peace),
+                                const Icon(AppIcons.peace),
                                 Text(
                                   "Hello friend",
                                   style: detailText.copyWith(
@@ -60,7 +58,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                               ],
                             ),
                           ),
-                          Text(
+                          const Text(
                             "What do you want to learn today?",
                             style: headerText,
                           )
@@ -94,9 +92,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                     ),
                   ],
                 ),
-              ),
-            ),
-          ),
+              )),
         );
       }),
     );

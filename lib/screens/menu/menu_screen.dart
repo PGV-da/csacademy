@@ -11,7 +11,7 @@ class MyMenuScreen extends GetView<MyZoomDrawerController> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30),
       width: double.maxFinite,
-      decoration: BoxDecoration(gradient: mainGradient()),
+      color: Colors.transparent,
       child: Theme(
         data: ThemeData(
           textButtonTheme: TextButtonThemeData(
