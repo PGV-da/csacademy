@@ -1,4 +1,6 @@
 import 'package:csacademy/firebase_ref/references.dart';
+import 'package:csacademy/screens/login/login_screen.dart';
+import 'package:csacademy/widgets/dialogs/dialogue_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -51,5 +53,23 @@ class AuthController extends GetxController {
       _user.value = user;
     });
     Get.offAllNamed("/introduction");
+  }
+
+  void showLoginAlertDialog() {
+    Get.dialog(
+      Dialogs.questionStartDialogue(onTap: () {
+        Get.back();
+        navigateToLoginPage();
+      }),
+      barrierDismissible: false,
+    );
+  }
+
+  void navigateToLoginPage() {
+    Get.toNamed(LoginScreen.routeName);
+  }
+
+  bool isLoggedIn() {
+    return _auth.currentUser != null;
   }
 }
