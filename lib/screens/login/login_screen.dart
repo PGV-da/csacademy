@@ -1,9 +1,11 @@
 import 'package:csacademy/configs/themes/app_colors.dart';
+import 'package:csacademy/controllers/auth_controller.dart';
 import 'package:csacademy/widgets/common/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetView<AuthController> {
   const LoginScreen({super.key});
 
   static const String routeName = "/login";
@@ -37,7 +39,9 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             MainButton(
-              onTap: () {},
+              onTap: () {
+                controller.signInWithGoogle();
+              },
               child: Stack(
                 children: [
                   Positioned(

@@ -23,6 +23,7 @@ class QuestionCard extends GetView<QuestionPaperController> {
       ),
       child: InkWell(
         onTap: () {
+          // print('${model.title}');
           controller.navigateToQuestions(paper: model);
         },
         child: Padding(

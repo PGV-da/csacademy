@@ -15,6 +15,8 @@ import 'package:get/get.dart';
 class HomeScreen extends GetView<MyZoomDrawerController> {
   const HomeScreen({super.key});
 
+  static const String routeName = "/home";
+
   @override
   Widget build(BuildContext context) {
     QuestionPaperController _questionPaperController = Get.find();
@@ -41,7 +43,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AppCircleButton(
-                            onTap: controller.toogleDrawer,
+                            onTap: controller.toggleDrawer,
                             child: const Icon(AppIcons.menuLeft),
                           ),
                           const SizedBox(height: 10),

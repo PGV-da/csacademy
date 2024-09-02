@@ -1,4 +1,5 @@
 import 'package:csacademy/firebase_ref/references.dart';
+import 'package:csacademy/screens/home/home_screen.dart';
 import 'package:csacademy/screens/login/login_screen.dart';
 import 'package:csacademy/widgets/dialogs/dialogue_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,6 +20,11 @@ class AuthController extends GetxController {
 
   void initAuth() async {
     await Future.delayed(const Duration(seconds: 2));
+    _auth = FirebaseAuth.instance;
+    _authStateChanges = _auth.authStateChanges();
+    _authStateChanges.listen((User? user) {
+      _user.value = user;
+    });
     navigateToIntroduction();
   }
 
@@ -34,8 +40,17 @@ class AuthController extends GetxController {
         );
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomePage();
       }
-    } on Exception catch (_) {}
+    } catch (e) {
+      // Handle other errors
+      print("An error occurred during Google sign-in: $e");
+    }
+  }
+
+  User? getUser() {
+    _user.value = _auth.currentUser;
+    return _user.value;
   }
 
   saveUser(GoogleSignInAccount account) {
@@ -46,13 +61,21 @@ class AuthController extends GetxController {
     });
   }
 
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+      navigateToHomePage();
+    } on FirebaseAuthException catch (e) {
+      print("Firebase logout exception : $e");
+    }
+  }
+
   void navigateToIntroduction() {
-    _auth = FirebaseAuth.instance;
-    _authStateChanges = _auth.authStateChanges();
-    _authStateChanges.listen((User? user) {
-      _user.value = user;
-    });
     Get.offAllNamed("/introduction");
+  }
+
+  navigateToHomePage() {
+    Get.offAllNamed(HomeScreen.routeName);
   }
 
   void showLoginAlertDialog() {

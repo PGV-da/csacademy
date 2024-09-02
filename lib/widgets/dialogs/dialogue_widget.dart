@@ -11,7 +11,7 @@ class Dialogs {
   static Widget questionStartDialogue({required VoidCallback onTap}) {
     return AlertDialog(
       content: const Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(

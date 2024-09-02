@@ -12,7 +12,12 @@
           "package_name": "com.example.csacademy"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "96004579911-nsn3eosnal74m1il4d86rjn9q9c88hu2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCiurFrVgrskQsl-Hz0i52aQHyu8rqp_mw"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96004579911-nsn3eosnal74m1il4d86rjn9q9c88hu2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "96004579911-m968u0viq5jc8kvepnqtkd7nfotr5oag.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.csacademy"
+              }
+            }
+          ]
         }
       }
     }

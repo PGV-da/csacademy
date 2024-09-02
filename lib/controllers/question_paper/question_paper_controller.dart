@@ -35,8 +35,10 @@ class QuestionPaperController extends GetxController {
     }
   }
 
-  void navigateToQuestions(
-      {required QuestionPaperModel paper, bool tryAgain = false}) {
+  void navigateToQuestions({
+    required QuestionPaperModel paper,
+    bool tryAgain = false,
+  }) {
     AuthController _authController = Get.find();
     if (_authController.isLoggedIn()) {
       if (tryAgain) {
