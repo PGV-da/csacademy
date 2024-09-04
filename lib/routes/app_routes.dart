@@ -3,6 +3,7 @@ import 'package:csacademy/controllers/zoom_drawer_controller.dart';
 import 'package:csacademy/screens/home/home_screen.dart';
 import 'package:csacademy/screens/introduction/introduction.dart';
 import 'package:csacademy/screens/login/login_screen.dart';
+import 'package:csacademy/screens/question/questions_screen.dart';
 import 'package:csacademy/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +28,10 @@ class AppRoutes {
         GetPage(
           name: LoginScreen.routeName,
           page: () => LoginScreen(),
+        ),
+        GetPage(
+          name: QuestionsScreen.routeName,
+          page: () => QuestionsScreen(),
         )
       ];
 }

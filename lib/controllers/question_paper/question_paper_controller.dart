@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:csacademy/controllers/auth_controller.dart';
 import 'package:csacademy/firebase_ref/references.dart';
 import 'package:csacademy/models/question_paper_model.dart';
+import 'package:csacademy/screens/question/questions_screen.dart';
 import 'package:csacademy/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 
@@ -45,7 +46,7 @@ class QuestionPaperController extends GetxController {
         Get.back();
         // Get.offNamed()
       } else {
-        // Get.toNamed()
+        Get.toNamed(QuestionsScreen.routeName, arguments: paper);
       }
     } else {
       _authController.showLoginAlertDialog();
