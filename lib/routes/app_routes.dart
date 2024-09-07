@@ -1,4 +1,5 @@
-import 'package:csacademy/controllers/question_paper/question_paper_controller.dart';
+import 'package:csacademy/controllers/question_paper/questions_controller.dart';
+import 'package:csacademy/controllers/question_paper_controller.dart';
 import 'package:csacademy/controllers/zoom_drawer_controller.dart';
 import 'package:csacademy/screens/home/home_screen.dart';
 import 'package:csacademy/screens/introduction/introduction.dart';
@@ -32,6 +33,9 @@ class AppRoutes {
         GetPage(
           name: QuestionsScreen.routeName,
           page: () => QuestionsScreen(),
+          binding: BindingsBuilder(() {
+            Get.put(QuestionsController());
+          }),
         )
       ];
 }

@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:csacademy/configs/themes/app_icons.dart';
 import 'package:csacademy/configs/themes/custom_text_styles.dart';
 import 'package:csacademy/configs/themes/ui_perameters.dart';
-import 'package:csacademy/controllers/question_paper/question_paper_controller.dart';
+import 'package:csacademy/controllers/question_paper_controller.dart';
 import 'package:csacademy/models/question_paper_model.dart';
 import 'package:csacademy/widgets/app_icon_text.dart';
 import 'package:flutter/material.dart';

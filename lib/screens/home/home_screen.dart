@@ -2,7 +2,7 @@ import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/configs/themes/app_icons.dart';
 import 'package:csacademy/configs/themes/custom_text_styles.dart';
 import 'package:csacademy/configs/themes/ui_perameters.dart';
-import 'package:csacademy/controllers/question_paper/question_paper_controller.dart';
+import 'package:csacademy/controllers/question_paper_controller.dart';
 import 'package:csacademy/controllers/zoom_drawer_controller.dart';
 import 'package:csacademy/screens/home/question_card.dart';
 import 'package:csacademy/screens/menu/menu_screen.dart';

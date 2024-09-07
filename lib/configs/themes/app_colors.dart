@@ -2,6 +2,7 @@ import 'package:csacademy/configs/themes/app_dark_theme.dart';
 import 'package:csacademy/configs/themes/app_light_theme.dart';
 import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const Color onSurfaceTextColor = Colors.white;
 
@@ -27,3 +28,11 @@ LinearGradient mainGradient() =>
 Color customScaffoldColor(BuildContext context) => UiPerameters.isDarkMode()
     ? const Color(0xFF2e3c62)
     : const Color.fromARGB(255, 240, 237, 255);
+
+Color answerSelectedColor() => UiPerameters.isDarkMode()
+    ? Theme.of(Get.context!).cardColor.withOpacity(0.5)
+    : Theme.of(Get.context!).primaryColor;
+
+Color answerBorderColor() => UiPerameters.isDarkMode()
+    ? const Color.fromARGB(255, 20, 46, 158)
+    : const Color.fromARGB(225, 221, 221, 221);
