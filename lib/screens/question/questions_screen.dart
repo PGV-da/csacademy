@@ -7,7 +7,6 @@ import 'package:csacademy/widgets/content_area.dart';
 import 'package:csacademy/widgets/questions/answer_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class QuestionsScreen extends GetView<QuestionsController> {
   const QuestionsScreen({super.key});

@@ -82,9 +82,7 @@ class Questions {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['question'] = this.question;
-    if (this.answers != null) {
-      data['answers'] = this.answers.map((v) => v.toJson()).toList();
-    }
+    data['answers'] = this.answers.map((v) => v.toJson()).toList();
     data['correct_answer'] = this.correctAnswer;
     return data;
   }
