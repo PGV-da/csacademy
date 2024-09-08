@@ -4,10 +4,12 @@ import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:csacademy/controllers/question_paper/questions_controller.dart';
 import 'package:csacademy/firebase_ref/loading_status.dart';
 import 'package:csacademy/widgets/common/background_decoration.dart';
+import 'package:csacademy/widgets/common/custom_app_bar.dart';
 import 'package:csacademy/widgets/common/main_button.dart';
 import 'package:csacademy/widgets/common/question_screen_holder.dart';
 import 'package:csacademy/widgets/content_area.dart';
 import 'package:csacademy/widgets/questions/answer_card.dart';
+import 'package:csacademy/widgets/questions/countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +21,30 @@ class QuestionsScreen extends GetView<QuestionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        leading: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: const ShapeDecoration(
+            shape: StadiumBorder(
+              side: BorderSide(color: onSurfaceTextColor, width: 2),
+            ),
+          ),
+          child: Obx(
+            () => CountdownTimer(
+              time: controller.time.value,
+              color: onSurfaceTextColor,
+            ),
+          ),
+        ),
+        showActionIcon: true,
+        titleWidget: Obx(
+          () => Text(
+            'Q. ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}',
+            style: appBarTS,
+          ),
+        ),
+      ),
       body: BackgroundDecoration(
         child: Obx(
           () => Column(

@@ -1,6 +1,7 @@
 import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 TextStyle cardTitles(context) => TextStyle(
       color: UiPerameters.isDarkMode()
@@ -17,3 +18,15 @@ const headerText = TextStyle(
   fontWeight: FontWeight.w700,
   color: onSurfaceTextColor,
 );
+const appBarTS = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16,
+  color: onSurfaceTextColor,
+);
+
+TextStyle countDownTimerTS() => TextStyle(
+      letterSpacing: 2,
+      color: UiPerameters.isDarkMode()
+          ? Theme.of(Get.context!).textTheme.bodyLarge!.color
+          : Theme.of(Get.context!).primaryColor,
+    );

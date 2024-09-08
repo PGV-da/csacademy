@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: Get.find<ThemeController>().lightTheme,
       getPages: AppRoutes.routes(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
