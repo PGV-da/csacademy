@@ -1,7 +1,10 @@
+import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/configs/themes/custom_text_styles.dart';
+import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:csacademy/controllers/question_paper/questions_controller.dart';
 import 'package:csacademy/firebase_ref/loading_status.dart';
 import 'package:csacademy/widgets/common/background_decoration.dart';
+import 'package:csacademy/widgets/common/main_button.dart';
 import 'package:csacademy/widgets/common/question_screen_holder.dart';
 import 'package:csacademy/widgets/content_area.dart';
 import 'package:csacademy/widgets/questions/answer_card.dart';
@@ -70,6 +73,49 @@ class QuestionsScreen extends GetView<QuestionsController> {
                     ),
                   ),
                 ),
+              ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Padding(
+                  padding: UiPerameters.mobileScreenPadding,
+                  child: Row(
+                    children: [
+                      Visibility(
+                        visible: controller.isFirstQuestion,
+                        child: SizedBox(
+                          width: 55,
+                          height: 55,
+                          child: MainButton(
+                            onTap: () {
+                              controller.prevQuestion();
+                            },
+                            child: Icon(
+                              Icons.arrow_back_ios_new,
+                              color: Get.isDarkMode
+                                  ? onSurfaceTextColor
+                                  : Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Visibility(
+                          visible: controller.loadingStatus.value ==
+                              LoadingStatus.completed,
+                          child: MainButton(
+                            onTap: () {
+                              controller.isLastQuestion
+                                  ? Container()
+                                  : controller.nextQuestion();
+                            },
+                            title:
+                                controller.isLastQuestion ? 'Complete' : 'Next',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
