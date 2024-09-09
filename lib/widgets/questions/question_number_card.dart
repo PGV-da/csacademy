@@ -20,15 +20,14 @@ class QuestionNumberCard extends StatelessWidget {
     Color _backgroundColor = Theme.of(context).primaryColor;
     switch (status) {
       case AnswerStatus.answered:
-        _backgroundColor:
-        Get.isDarkMode
+        _backgroundColor = Get.isDarkMode
             ? Theme.of(context).cardColor
             : Theme.of(context).primaryColor;
         break;
       case AnswerStatus.correct:
         _backgroundColor = correctAnswerColor;
         break;
-      case AnswerStatus.worng:
+      case AnswerStatus.wrong:
         _backgroundColor = worngAnswerColor;
         break;
       case AnswerStatus.notanswered:
