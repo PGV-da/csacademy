@@ -5,6 +5,7 @@ import 'package:csacademy/screens/home/home_screen.dart';
 import 'package:csacademy/screens/introduction/introduction.dart';
 import 'package:csacademy/screens/login/login_screen.dart';
 import 'package:csacademy/screens/question/questions_screen.dart';
+import 'package:csacademy/screens/question/test_overview_screen.dart';
 import 'package:csacademy/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -28,14 +29,18 @@ class AppRoutes {
         ),
         GetPage(
           name: LoginScreen.routeName,
-          page: () => LoginScreen(),
+          page: () => const LoginScreen(),
         ),
         GetPage(
           name: QuestionsScreen.routeName,
-          page: () => QuestionsScreen(),
+          page: () => const QuestionsScreen(),
           binding: BindingsBuilder(() {
-            Get.put(QuestionsController());
+            Get.put<QuestionsController>(QuestionsController());
           }),
-        )
+        ),
+        GetPage(
+          name: TestOverviewScreen.routeName,
+          page: () => const TestOverviewScreen(),
+        ),
       ];
 }

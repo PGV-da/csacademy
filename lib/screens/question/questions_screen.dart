@@ -3,6 +3,7 @@ import 'package:csacademy/configs/themes/custom_text_styles.dart';
 import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:csacademy/controllers/question_paper/questions_controller.dart';
 import 'package:csacademy/firebase_ref/loading_status.dart';
+import 'package:csacademy/screens/question/test_overview_screen.dart';
 import 'package:csacademy/widgets/common/background_decoration.dart';
 import 'package:csacademy/widgets/common/custom_app_bar.dart';
 import 'package:csacademy/widgets/common/main_button.dart';
@@ -130,7 +131,7 @@ class QuestionsScreen extends GetView<QuestionsController> {
                           child: MainButton(
                             onTap: () {
                               controller.isLastQuestion
-                                  ? Container()
+                                  ? Get.toNamed(TestOverviewScreen.routeName)
                                   : controller.nextQuestion();
                             },
                             title:

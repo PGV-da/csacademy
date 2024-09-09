@@ -2,6 +2,8 @@ import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:flutter/material.dart';
 
+enum AnswerStatus { correct, worng, answered, notanswered }
+
 class AnswerCard extends StatelessWidget {
   final String answer;
   final bool isSelected;
