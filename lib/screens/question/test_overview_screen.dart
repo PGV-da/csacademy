@@ -2,6 +2,7 @@ import 'package:csacademy/configs/themes/ui_perameters.dart';
 import 'package:csacademy/controllers/question_paper/questions_controller.dart';
 import 'package:csacademy/widgets/common/background_decoration.dart';
 import 'package:csacademy/widgets/common/custom_app_bar.dart';
+import 'package:csacademy/widgets/common/main_button.dart';
 import 'package:csacademy/widgets/content_area.dart';
 import 'package:csacademy/widgets/questions/answer_card.dart';
 import 'package:csacademy/widgets/questions/countdown_timer.dart';
@@ -17,61 +18,73 @@ class TestOverviewScreen extends GetView<QuestionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: CustomAppBar(
-          title: controller.completedTest,
-        ),
-        body: BackgroundDecoration(
-          child: Column(
-            children: [
-              Expanded(
-                child: ContentArea(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          CountdownTimer(
-                            time: '',
-                            color: UiPerameters.isDarkMode()
-                                ? Theme.of(context).textTheme.bodyLarge!.color
-                                : Theme.of(context).primaryColor,
-                          ),
-                          Obx(() => Text('${controller.time} Remaining'))
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Expanded(
-                        child: GridView.builder(
-                          itemCount: controller.allQuestions.length,
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: Get.width ~/ 75,
-                            childAspectRatio: 1,
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8,
-                          ),
-                          itemBuilder: (_, index) {
-                            AnswerStatus? _answerStatus;
-                            if (controller.allQuestions[index].selectedAnswer !=
-                                null) {
-                              _answerStatus = AnswerStatus.answered;
-                            }
-                            return QuestionNumberCard(
-                              index: index + 1,
-                              status: _answerStatus,
-                              onTap: () => controller.jumpToQuestion(index),
-                            );
-                          },
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        title: controller.completedTest,
+      ),
+      body: BackgroundDecoration(
+        child: Column(
+          children: [
+            Expanded(
+              child: ContentArea(
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        CountdownTimer(
+                          time: '',
+                          color: UiPerameters.isDarkMode()
+                              ? Theme.of(context).textTheme.bodyLarge!.color
+                              : Theme.of(context).primaryColor,
                         ),
-                      )
-                    ],
-                  ),
+                        Obx(() => Text('${controller.time} Remaining'))
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Expanded(
+                      child: GridView.builder(
+                        itemCount: controller.allQuestions.length,
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: Get.width ~/ 75,
+                          childAspectRatio: 1,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                        ),
+                        itemBuilder: (_, index) {
+                          AnswerStatus? _answerStatus;
+                          if (controller.allQuestions[index].selectedAnswer !=
+                              null) {
+                            _answerStatus = AnswerStatus.answered;
+                          }
+                          return QuestionNumberCard(
+                            index: index + 1,
+                            status: _answerStatus,
+                            onTap: () => controller.jumpToQuestion(index),
+                          );
+                        },
+                      ),
+                    )
+                  ],
                 ),
-              )
-            ],
-          ),
-        ));
+              ),
+            ),
+            ColoredBox(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              child: Padding(
+                padding: UiPerameters.mobileScreenPadding,
+                child: MainButton(
+                  onTap: () {
+                    controller.complete();
+                  },
+                  title: 'Complete',
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
