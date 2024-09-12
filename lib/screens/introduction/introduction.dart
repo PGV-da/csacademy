@@ -13,7 +13,7 @@ class AppIntroductionScreen extends StatelessWidget {
         decoration: BoxDecoration(gradient: mainGradient()),
         alignment: Alignment.center,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 0.2),
+          padding: const EdgeInsets.symmetric(horizontal: 0.2),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -21,7 +21,7 @@ class AppIntroductionScreen extends StatelessWidget {
                 Icons.star,
                 size: 65,
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               const Text(
                 "Confident for Success",
                 textAlign: TextAlign.center,
@@ -31,7 +31,7 @@ class AppIntroductionScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               AppCircleButton(
                 child: const Icon(
                   Icons.arrow_forward,

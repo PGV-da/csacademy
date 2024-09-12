@@ -32,7 +32,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
               style: DrawerStyle.defaultStyle,
               slideWidth: MediaQuery.of(context).size.width * 0.8,
               controller: _.zoomDrawerController,
-              menuScreen: MyMenuScreen(),
+              menuScreen: const MyMenuScreen(),
               mainScreen: SafeArea(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

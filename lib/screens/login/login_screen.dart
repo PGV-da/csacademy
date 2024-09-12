@@ -14,7 +14,7 @@ class LoginScreen extends GetView<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           gradient: mainGradient(),

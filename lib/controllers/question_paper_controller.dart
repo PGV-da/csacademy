@@ -32,7 +32,7 @@ class QuestionPaperController extends GetxController {
       }
       allPapers.assignAll(paperList);
     } catch (e) {
-      print("Failed to load data from database: $e");
+      // print("Failed to load data from database: $e");
     }
   }
 

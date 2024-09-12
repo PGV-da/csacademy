@@ -71,7 +71,7 @@ class QuestionsScreen extends GetView<QuestionsController> {
                                 return ListView.separated(
                                   shrinkWrap: true,
                                   padding: const EdgeInsets.only(top: 25),
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     final answer = controller

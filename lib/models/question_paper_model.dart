@@ -39,17 +39,6 @@ class QuestionPaperModel {
         questions = [];
 
   String timeInMinits() => "${(timeSeconds / 60).ceil()} mins";
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['image_url'] = this.imageUrl;
-    data['description'] = this.description;
-    data['time_seconds'] = this.timeSeconds;
-
-    return data;
-  }
 }
 
 class Questions {
@@ -77,15 +66,6 @@ class Questions {
         question = snapshot['question'],
         answers = [],
         correctAnswer = snapshot['correct_answer'];
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['question'] = this.question;
-    data['answers'] = this.answers.map((v) => v.toJson()).toList();
-    data['correct_answer'] = this.correctAnswer;
-    return data;
-  }
 }
 
 class Answers {
@@ -101,11 +81,4 @@ class Answers {
   Answers.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
       : identifier = snapshot['identifier'] as String?,
         answer = snapshot['answer'] as String?;
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['identifier'] = this.identifier;
-    data['Answer'] = this.answer;
-    return data;
-  }
 }

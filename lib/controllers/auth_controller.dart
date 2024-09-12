@@ -44,7 +44,6 @@ class AuthController extends GetxController {
       }
     } catch (e) {
       // Handle other errors
-      print("An error occurred during Google sign-in: $e");
     }
   }
 
@@ -65,8 +64,8 @@ class AuthController extends GetxController {
     try {
       await _auth.signOut();
       navigateToHomePage();
-    } on FirebaseAuthException catch (e) {
-      print("Firebase logout exception : $e");
+    } on FirebaseAuthException catch (_) {
+      // print("Firebase logout exception : $e");
     }
   }
 
