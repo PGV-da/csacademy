@@ -26,4 +26,8 @@ class MyZoomDrawerController extends GetxController {
   void signIn() {}
 
   void website() {}
+
+  void openSettings() {}
+
+  void aboutUs() {}
 }

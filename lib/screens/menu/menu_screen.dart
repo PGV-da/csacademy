@@ -1,5 +1,8 @@
 import 'package:csacademy/configs/themes/app_colors.dart';
 import 'package:csacademy/controllers/zoom_drawer_controller.dart';
+import 'package:csacademy/screens/menu/info_card.dart';
+import 'package:csacademy/screens/menu/side_menu_tile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,78 +22,34 @@ class MyMenuScreen extends GetView<MyZoomDrawerController> {
           ),
         ),
         child: SafeArea(
-          child: Stack(
+          child: Column(
             children: [
-              Positioned(
-                top: 0,
-                right: 0,
-                child: BackButton(
-                  color: Colors.white,
-                  onPressed: () {
-                    controller.toggleDrawer();
-                  },
-                ),
+              InfoCard(controller: controller),
+              const SizedBox(height: 25),
+              SideMenuTile(
+                icon: CupertinoIcons.home,
+                label: 'Home',
+                onPressed: () => controller.website(),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    right: MediaQuery.of(context).size.width * 0.3),
-                child: Column(
-                  children: [
-                    Obx(
-                      () => controller.user.value == null
-                          ? const SizedBox()
-                          : Text(
-                              controller.user.value!.displayName ?? '',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 18,
-                                color: onSurfaceTextColor,
-                              ),
-                            ),
-                    ),
-                    const Spacer(flex: 1),
-                    _DrawerButton(
-                      icon: Icons.web,
-                      label: "website",
-                      onPressed: () => controller.website(),
-                    ),
-                    const Spacer(flex: 4),
-                    _DrawerButton(
-                      icon: Icons.logout,
-                      label: "logout",
-                      onPressed: () => controller.signOut(),
-                    )
-                  ],
-                ),
+              SideMenuTile(
+                icon: CupertinoIcons.settings,
+                label: 'Settings',
+                onPressed: () => controller.openSettings(),
+              ),
+              SideMenuTile(
+                icon: CupertinoIcons.info_circle,
+                label: 'About Us',
+                onPressed: () => controller.aboutUs(),
+              ),
+              const Spacer(),
+              SideMenuTile(
+                icon: CupertinoIcons.square_arrow_right,
+                label: 'Logout',
+                onPressed: () => controller.signOut(),
               )
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _DrawerButton extends StatelessWidget {
-  const _DrawerButton({
-    super.key,
-    required this.icon,
-    required this.label,
-    this.onPressed,
-  });
-
-  final IconData icon;
-  final String label;
-  final VoidCallback? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton.icon(
-      onPressed: onPressed,
-      label: Text(label),
-      icon: Icon(
-        icon,
-        size: 15,
       ),
     );
   }
