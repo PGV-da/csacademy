@@ -1,4 +1,5 @@
 import 'package:csacademy/configs/themes/app_colors.dart';
+import 'package:csacademy/screens/main_question/main_question_screen.dart';
 import 'package:csacademy/widgets/app_circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,7 @@ class AppIntroductionScreen extends StatelessWidget {
                   Icons.arrow_forward,
                   size: 35,
                 ),
-                onTap: () => Get.offAndToNamed("/home"),
+                onTap: () => Get.offAndToNamed(MainQuestionScreen.routeName),
               )
             ],
           ),

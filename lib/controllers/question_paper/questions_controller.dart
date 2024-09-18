@@ -5,7 +5,7 @@ import 'package:csacademy/controllers/question_paper_controller.dart';
 import 'package:csacademy/firebase_ref/loading_status.dart';
 import 'package:csacademy/firebase_ref/references.dart';
 import 'package:csacademy/models/question_paper_model.dart';
-import 'package:csacademy/screens/home/home_screen.dart';
+import 'package:csacademy/screens/main_question/main_question_screen.dart';
 import 'package:csacademy/screens/question/result_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -142,6 +142,6 @@ class QuestionsController extends GetxController {
 
   void navigateToHome() {
     _timer!.cancel();
-    Get.offNamedUntil(HomeScreen.routeName, (route) => false);
+    Get.offNamedUntil(MainQuestionScreen.routeName, (route) => false);
   }
 }

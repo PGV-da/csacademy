@@ -1,7 +1,7 @@
 import 'package:csacademy/controllers/question_paper/questions_controller.dart';
 import 'package:csacademy/controllers/question_paper_controller.dart';
 import 'package:csacademy/controllers/zoom_drawer_controller.dart';
-import 'package:csacademy/screens/home/home_screen.dart';
+import 'package:csacademy/screens/main_question/main_question_screen.dart';
 import 'package:csacademy/screens/introduction/introduction.dart';
 import 'package:csacademy/screens/login/login_screen.dart';
 import 'package:csacademy/screens/question/answer_check_screen.dart';
@@ -22,8 +22,8 @@ class AppRoutes {
           page: () => const AppIntroductionScreen(),
         ),
         GetPage(
-          name: HomeScreen.routeName,
-          page: () => const HomeScreen(),
+          name: MainQuestionScreen.routeName,
+          page: () => const MainQuestionScreen(),
           binding: BindingsBuilder(() {
             Get.put(QuestionPaperController());
             Get.put(MyZoomDrawerController());
