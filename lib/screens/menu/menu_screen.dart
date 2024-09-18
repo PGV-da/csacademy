@@ -29,7 +29,12 @@ class MyMenuScreen extends GetView<MyZoomDrawerController> {
               SideMenuTile(
                 icon: CupertinoIcons.home,
                 label: 'Home',
-                onPressed: () => controller.website(),
+                onPressed: () => controller.goToHome(),
+              ),
+              SideMenuTile(
+                icon: CupertinoIcons.book,
+                label: 'Test',
+                onPressed: () => controller.goToTest(),
               ),
               SideMenuTile(
                 icon: CupertinoIcons.settings,

@@ -1,5 +1,5 @@
 import 'package:csacademy/firebase_ref/references.dart';
-import 'package:csacademy/screens/main_question/main_question_screen.dart';
+import 'package:csacademy/screens/home/home_screen.dart';
 import 'package:csacademy/screens/login/login_screen.dart';
 import 'package:csacademy/widgets/dialogs/dialogue_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,7 +74,7 @@ class AuthController extends GetxController {
   }
 
   navigateToHomePage() {
-    Get.offAllNamed(MainQuestionScreen.routeName);
+    Get.offAllNamed(HomeScreen.routeName);
   }
 
   void showLoginAlertDialog() {
